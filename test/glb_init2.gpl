@@ -1,0 +1,6 @@
+int a = "55we";
+
+void main()
+{
+	print(a);
+}

@@ -1,0 +1,14 @@
+void main() {
+    print(fun());
+}
+
+int fun() {
+    int i=5;
+    for(; i<10; i+=1) {
+       if(true) {
+           int j;
+           for(j=5; j<10; j+=1) return 8;
+       }
+    }
+    return 5;
+}

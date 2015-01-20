@@ -1,0 +1,8 @@
+void main() {
+    int a = 30;
+    if (a == 30) {
+        print(a);
+    }else{
+        print("wrong");
+    }
+}

@@ -1,0 +1,63 @@
+edge[] edge_merge_sort(edge[] lst)
+{
+	if (lst.len() <= 1)
+		return lst;
+	int size_left = lst.len() / 2;
+	int size_right = lst.len() - size_left;
+	edge[size_left] left;
+	edge[size_right] right;
+	int i;
+	for (i = 0; i < size_left; i+=1)
+		left[i] = lst[i];
+	for (i = size_left; i < lst.len(); i+=1)
+		right[i-size_left] = lst[i];
+	return edge_merge(edge_merge_sort(left), edge_merge_sort(right));
+}
+
+edge[] edge_merge(edge[] left, edge[] right)
+{
+	int i = 0;
+	int j = 0;
+	int k = 0;
+	edge[left.len() + right.len()] res;
+	while (i < left.len() && j < right.len())
+		if (left[i].getWeight() >= right[j].getWeight())
+		{
+			res[k] = right[j];
+			k += 1;
+			j += 1;
+		} else
+		{
+			res[k] = left[i];
+			k += 1;
+			i += 1;
+		}
+	if (i == left.len())
+		for (; k < res.len(); k+=1)
+		{
+			res[k] = right[j];
+			j += 1;
+		}
+	if (j == right.len())
+		for (; k < res.len(); k+=1)
+		{
+			res[k] = left[i];
+			i += 1;
+		}
+	return res;
+}
+
+void main()
+{
+	graph g;
+	g = 
+	[
+		a -(2)> b -(3)> d -(5)> e;
+		b -(7)> e;
+		a -(1)> c -(4)> d;
+	];
+	edge[] sorted_edges = edge_merge_sort(g.getAllEdges());
+	int i;
+	for (i = 0; i < sorted_edges.len(); i+=1)
+		print(sorted_edges[i].getWeight());
+}

@@ -1,0 +1,7 @@
+void main()
+{
+	graph g;
+	g = [ a -(9)> b -(10)> c; ];
+	print(g.getWeight(g.a, g.b));
+	print(g.getWeight(g.b, g.c));
+}

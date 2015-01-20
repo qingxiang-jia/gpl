@@ -1,0 +1,6 @@
+void main()
+{
+	string a;
+	a = "this is a string";
+	print(a);
+}

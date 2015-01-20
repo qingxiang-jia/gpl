@@ -1,0 +1,16 @@
+void main()
+{
+	string[3][20] str;
+	char[3][4] ch;
+	int[4][3] num;
+	int i;
+	print(str.len());
+	for (i = 0; i < 3; i+=1)
+		print(str[i].len());
+	print(ch.len());
+	for (i = 0; i < 3; i+=1)
+		print((ch[i]).len());
+	print(num.len());
+	for (i = 0; i < 4; i+=1)
+		print(num[i].len());
+}

@@ -1,0 +1,72 @@
+void main() {
+    graph g = [a -(2)> b; 
+               a -(3)> c;
+               b -(7)> c;
+               b -(1)> d;
+               c -(6)> e;
+               d -(7)> j;
+               d -(6)> i;
+               e -(2)> h;
+               e -(8)> f;
+               f -(9)> b;
+               g -(4)> j;
+               h -(3)> i;
+               i -(9)> g;
+               j -(13)> f;];
+
+    // from a to f
+    int[g.getNodeCount()] s_path;
+    node[g.getNodeCount()] trail;
+    int[g.getNodeCount()] visited;
+    int i;
+    int j;
+    int min;
+    for (i=0; i<g.getNodeCount(); i+=1) {
+        s_path[i] = -1;
+        visited[i] = 0;
+        trail[i] = g.getNode(i);
+    }
+    s_path[g.a.getID()] = 0;
+    node[g.getOutNeighbours(g.a).len()] adj_nodes = g.getOutNeighbours(g.a);
+    for (i=0; i<adj_nodes.len(); i+=1) {
+        s_path[adj_nodes[i].getID()] = g.getWeight(g.a, adj_nodes[i]);
+        trail[adj_nodes[i].getID()] = g.a;
+    }
+    int d;
+
+    for (i=0; i<g.getNodeCount(); i+=1) {
+        min = -1;
+        for (j=0; j<g.getNodeCount(); j+=1) {
+            if ((min == -1 || (s_path[j] != -1 && min > s_path[j])) && visited[j] == 0) {
+                min = s_path[j];
+                d = i;
+            }
+        }
+        visited[d] = 1;
+        node d_n = g.getNode(d);
+        node[g.getOutNeighbours(d_n).len()] d_adj = g.getOutNeighbours(d_n);
+        for (j=0; j<d_adj.len(); j+=1) {
+            if (s_path[d_adj[j].getID()] == -1 || s_path[d_adj[j].getID()] > s_path[d] + g.getWeight(d_n, d_adj[j])) {
+                s_path[d_adj[j].getID()] = s_path[d] + g.getWeight(d_n, d_adj[j]);
+                trail[d_adj[j].getID()] = d_n;
+            }
+        }
+    }
+    
+    print(s_path[g.g.getID()]);
+    d = g.g.getID();
+    node[g.getNodeCount()] path;
+    int p = 0;
+    path[p] = g.g;
+    p += 1;
+    while(!(trail[d] == g.a)) {
+        path[p] = trail[d];
+        p += 1;
+        d = trail[d].getID();
+    }
+    path[p] = g.a;
+    p += 1;
+    for (i=p-1; i>=0; i-=1) {
+        print(path[i]);
+    }
+}

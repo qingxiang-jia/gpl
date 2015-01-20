@@ -1,0 +1,14 @@
+void main()
+{
+	int a = 3;
+	int b = 2;
+	int[a+b] num;
+	print(num.len());
+	int[get3()] num2;
+	print(num2.len());
+}
+
+int get3()
+{
+	return 3;
+}

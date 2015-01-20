@@ -1,0 +1,125 @@
+\contentsline {section}{\numberline {1}Introduction}{4}{section.1}
+\contentsline {subsection}{\numberline {1.1}Motivation}{4}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Key Features}{4}{subsection.1.2}
+\contentsline {section}{\numberline {2}Language Tutorial}{5}{section.2}
+\contentsline {subsection}{\numberline {2.1}Basic Structure of A GPL Program}{5}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Built-in Data Types and Variable Assignment}{5}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Control Structures}{5}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Writing and Calling a Function}{6}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Advanced Date Types}{6}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}Defining a Graph}{7}{subsection.2.6}
+\contentsline {subsubsection}{\numberline {2.6.1}Defining a Graph with Redundancy}{7}{subsubsection.2.6.1}
+\contentsline {subsubsection}{\numberline {2.6.2}Defining a Graph with Edge Weights}{8}{subsubsection.2.6.2}
+\contentsline {section}{\numberline {3}Language Manual}{9}{section.3}
+\contentsline {subsection}{\numberline {3.1}Introduction}{9}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Lexical Conventions}{9}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Comments}{9}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Identifiers}{9}{subsubsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.3}Keywords}{10}{subsubsection.3.2.3}
+\contentsline {subsubsection}{\numberline {3.2.4}Object Type}{10}{subsubsection.3.2.4}
+\contentsline {subsubsection}{\numberline {3.2.5}Literals}{10}{subsubsection.3.2.5}
+\contentsline {paragraph}{\numberline {3.2.5.1}Integer literals}{10}{paragraph.3.2.5.1}
+\contentsline {paragraph}{\numberline {3.2.5.2}Character literals}{10}{paragraph.3.2.5.2}
+\contentsline {paragraph}{\numberline {3.2.5.3}Boolean literals}{10}{paragraph.3.2.5.3}
+\contentsline {paragraph}{\numberline {3.2.5.4}String literals}{10}{paragraph.3.2.5.4}
+\contentsline {paragraph}{\numberline {3.2.5.5}Graph literals}{11}{paragraph.3.2.5.5}
+\contentsline {subsection}{\numberline {3.3}Expressions}{11}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Primary Expressions}{11}{subsubsection.3.3.1}
+\contentsline {paragraph}{\numberline {3.3.1.1}identifier}{11}{paragraph.3.3.1.1}
+\contentsline {paragraph}{\numberline {3.3.1.2}literal}{11}{paragraph.3.3.1.2}
+\contentsline {paragraph}{\numberline {3.3.1.3}string}{11}{paragraph.3.3.1.3}
+\contentsline {paragraph}{\numberline {3.3.1.4}node}{11}{paragraph.3.3.1.4}
+\contentsline {paragraph}{\numberline {3.3.1.5}edge}{12}{paragraph.3.3.1.5}
+\contentsline {paragraph}{\numberline {3.3.1.6}graph}{12}{paragraph.3.3.1.6}
+\contentsline {paragraph}{\numberline {3.3.1.7}( expression )}{12}{paragraph.3.3.1.7}
+\contentsline {paragraph}{\numberline {3.3.1.8}primary-expression {[} expression {]} }{12}{paragraph.3.3.1.8}
+\contentsline {paragraph}{\numberline {3.3.1.9}primary-expression ( expression ) }{12}{paragraph.3.3.1.9}
+\contentsline {paragraph}{\numberline {3.3.1.10}primary-lvalue . member-function-of-object-type}{13}{paragraph.3.3.1.10}
+\contentsline {subsubsection}{\numberline {3.3.2}Graph Definition Operators}{13}{subsubsection.3.3.2}
+\contentsline {paragraph}{\numberline {3.3.2.1}identifier $->$ identifier}{13}{paragraph.3.3.2.1}
+\contentsline {paragraph}{\numberline {3.3.2.2}identifier :$->$ identifier, identifier, ...}{13}{paragraph.3.3.2.2}
+\contentsline {paragraph}{\numberline {3.3.2.3}identifier $-$(expression)$>$ identifier}{13}{paragraph.3.3.2.3}
+\contentsline {paragraph}{\numberline {3.3.2.4}identifier $:-$(expression)$>$ identifier, identifier, ... }{13}{paragraph.3.3.2.4}
+\contentsline {subsubsection}{\numberline {3.3.3}Unary Operators}{13}{subsubsection.3.3.3}
+\contentsline {paragraph}{\numberline {3.3.3.1}$-$ expression}{13}{paragraph.3.3.3.1}
+\contentsline {paragraph}{\numberline {3.3.3.2}$!$ expression}{13}{paragraph.3.3.3.2}
+\contentsline {subsubsection}{\numberline {3.3.4}Multiplicative Operators}{14}{subsubsection.3.3.4}
+\contentsline {paragraph}{\numberline {3.3.4.1}expression * expression}{14}{paragraph.3.3.4.1}
+\contentsline {paragraph}{\numberline {3.3.4.2}expression / expression}{14}{paragraph.3.3.4.2}
+\contentsline {paragraph}{\numberline {3.3.4.3}expression \% expression}{14}{paragraph.3.3.4.3}
+\contentsline {subsubsection}{\numberline {3.3.5}Additive operators}{14}{subsubsection.3.3.5}
+\contentsline {paragraph}{\numberline {3.3.5.1}expression + expression}{14}{paragraph.3.3.5.1}
+\contentsline {paragraph}{\numberline {3.3.5.2}expression - expression}{14}{paragraph.3.3.5.2}
+\contentsline {subsubsection}{\numberline {3.3.6}Relational operators}{14}{subsubsection.3.3.6}
+\contentsline {paragraph}{\numberline {3.3.6.1}expression $<$ expression}{14}{paragraph.3.3.6.1}
+\contentsline {paragraph}{\numberline {3.3.6.2}expression $>$ expression}{14}{paragraph.3.3.6.2}
+\contentsline {paragraph}{\numberline {3.3.6.3}expression $<=$ expression}{14}{paragraph.3.3.6.3}
+\contentsline {paragraph}{\numberline {3.3.6.4}expression $>=$ expression}{14}{paragraph.3.3.6.4}
+\contentsline {paragraph}{\numberline {3.3.6.5}expression $==$ expression}{14}{paragraph.3.3.6.5}
+\contentsline {paragraph}{\numberline {3.3.6.6}expression $!=$ expression}{15}{paragraph.3.3.6.6}
+\contentsline {subsubsection}{\numberline {3.3.7}Assignment operators}{15}{subsubsection.3.3.7}
+\contentsline {paragraph}{\numberline {3.3.7.1}variable = expression}{15}{paragraph.3.3.7.1}
+\contentsline {paragraph}{\numberline {3.3.7.2}variable += expression}{15}{paragraph.3.3.7.2}
+\contentsline {paragraph}{\numberline {3.3.7.3}variable -= expression}{15}{paragraph.3.3.7.3}
+\contentsline {subsubsection}{\numberline {3.3.8}Logical operators}{15}{subsubsection.3.3.8}
+\contentsline {paragraph}{\numberline {3.3.8.1}boolean-expression $\&\&$ boolean-expression}{15}{paragraph.3.3.8.1}
+\contentsline {paragraph}{\numberline {3.3.8.2}boolean-expression $||$ boolean-expression}{15}{paragraph.3.3.8.2}
+\contentsline {subsubsection}{\numberline {3.3.9}Function calls}{15}{subsubsection.3.3.9}
+\contentsline {subsection}{\numberline {3.4}Declarations}{16}{subsection.3.4}
+\contentsline {subsubsection}{\numberline {3.4.1}Type specifiers}{16}{subsubsection.3.4.1}
+\contentsline {subsubsection}{\numberline {3.4.2}Variable Declarators}{16}{subsubsection.3.4.2}
+\contentsline {subsubsection}{\numberline {3.4.3}Graph Expression}{16}{subsubsection.3.4.3}
+\contentsline {subsubsection}{\numberline {3.4.4}Function declarations}{17}{subsubsection.3.4.4}
+\contentsline {subsection}{\numberline {3.5}Statements}{17}{subsection.3.5}
+\contentsline {subsubsection}{\numberline {3.5.1}Expression statement}{17}{subsubsection.3.5.1}
+\contentsline {subsubsection}{\numberline {3.5.2}Compound statement}{17}{subsubsection.3.5.2}
+\contentsline {subsubsection}{\numberline {3.5.3}Conditional statement}{18}{subsubsection.3.5.3}
+\contentsline {subsubsection}{\numberline {3.5.4}While statement}{18}{subsubsection.3.5.4}
+\contentsline {subsubsection}{\numberline {3.5.5}For statement}{18}{subsubsection.3.5.5}
+\contentsline {subsubsection}{\numberline {3.5.6}Return statement}{18}{subsubsection.3.5.6}
+\contentsline {subsubsection}{\numberline {3.5.7}Null statement}{18}{subsubsection.3.5.7}
+\contentsline {subsection}{\numberline {3.6}Scoping}{19}{subsection.3.6}
+\contentsline {section}{\numberline {4}Project Plan}{19}{section.4}
+\contentsline {subsection}{\numberline {4.1}Planning}{19}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Specification}{19}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Development}{20}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Testing}{20}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Programming Style Guide}{20}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.6}Project Timeline}{20}{subsection.4.6}
+\contentsline {subsection}{\numberline {4.7}Roles and Responsibility}{22}{subsection.4.7}
+\contentsline {subsubsection}{\numberline {4.7.1}Development Environment}{22}{subsubsection.4.7.1}
+\contentsline {subsubsection}{\numberline {4.7.2}Project Log}{22}{subsubsection.4.7.2}
+\contentsline {section}{\numberline {5}Architectural Design}{22}{section.5}
+\contentsline {subsection}{\numberline {5.1}Scanning}{22}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Parsing and Abstract Syntax Tree}{23}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Semantic check and SAST}{23}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Code generation}{24}{subsection.5.4}
+\contentsline {section}{\numberline {6}Test Plan}{24}{section.6}
+\contentsline {subsection}{\numberline {6.1}GPL Demo Code}{24}{subsection.6.1}
+\contentsline {subsubsection}{\numberline {6.1.1}GCD}{24}{subsubsection.6.1.1}
+\contentsline {subsection}{\numberline {6.2}Test Suite}{26}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Test Cases Explained}{28}{subsection.6.3}
+\contentsline {section}{\numberline {7}Lessons Learned}{30}{section.7}
+\contentsline {subsection}{\numberline {7.1}Ephraim Park}{30}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Peiqian Li}{30}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}Qingxiang Jia}{30}{subsection.7.3}
+\contentsline {section}{\numberline {8}Appendix}{31}{section.8}
+\contentsline {subsection}{\numberline {8.1}scanner.mll}{31}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}parser.mly}{33}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}ast.ml}{41}{subsection.8.3}
+\contentsline {subsection}{\numberline {8.4}sast.ml}{45}{subsection.8.4}
+\contentsline {subsection}{\numberline {8.5}cgen.ml}{62}{subsection.8.5}
+\contentsline {subsection}{\numberline {8.6}gpl.ml}{67}{subsection.8.6}
+\contentsline {subsection}{\numberline {8.7}libgraph.h}{67}{subsection.8.7}
+\contentsline {subsection}{\numberline {8.8}libprint.h}{73}{subsection.8.8}
+\contentsline {subsection}{\numberline {8.9}libstring.h}{74}{subsection.8.9}
+\contentsline {subsection}{\numberline {8.10}Demo: Kosaraju.gpl}{75}{subsection.8.10}
+\contentsline {subsection}{\numberline {8.11}Demo: all$\_$path.gpl}{76}{subsection.8.11}
+\contentsline {subsection}{\numberline {8.12}Demo: dijkstra.gpl}{77}{subsection.8.12}
+\contentsline {subsection}{\numberline {8.13}Demo: edge$\_$merge$\_$sort.gpl}{79}{subsection.8.13}
+\contentsline {subsection}{\numberline {8.14}Demo: int$\_$merge$\_$sort.gpl}{81}{subsection.8.14}
+\contentsline {subsection}{\numberline {8.15}Demo: gcd$\_$i.gpl}{83}{subsection.8.15}
+\contentsline {subsection}{\numberline {8.16}Demo: gcd$\_$r.gpl}{83}{subsection.8.16}
+\contentsline {subsection}{\numberline {8.17}Demo: edge$\_$merge$\_$sort.gpl}{83}{subsection.8.17}
+\contentsline {subsection}{\numberline {8.18}Demo: kruskal.gpl}{86}{subsection.8.18}
+\contentsline {subsection}{\numberline {8.19}Demo: slides.gpl}{90}{subsection.8.19}

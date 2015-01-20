@@ -1,0 +1,6 @@
+int a = 3;
+
+void main()
+{
+	print(a);
+}

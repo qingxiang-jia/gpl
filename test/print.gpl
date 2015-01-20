@@ -1,0 +1,6 @@
+void main() {
+    print(56 + 4*2 - 7);
+    print('w');
+    print("I'm a string:)");
+}
+

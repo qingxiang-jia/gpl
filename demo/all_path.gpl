@@ -1,0 +1,47 @@
+void print_path(graph g, node cur, node dest, node[] path) {
+    node[path.len() + 1] cur_path;
+    int i;
+    int j;
+    for (i=0; i<path.len(); i+=1) {
+        cur_path[i] = path[i];
+    }
+    cur_path[path.len()] = cur;
+    
+    if (cur == dest) {
+       int i;
+       print("Start");
+       for (i=0; i<cur_path.len(); i+=1) {
+           print(cur_path[i]);
+       }
+       print("End\n");
+       return;
+    }
+    node[g.getOutNeighbours(cur).len()] adj = g.getOutNeighbours(cur);
+    int flag;
+    for (i=0; i<adj.len(); i+=1) {
+        flag = 0;
+        for (j=0; j<path.len(); j+=1) {
+            if (adj[i] == path[j]) {
+                flag = 1;
+            }
+        }
+        if (flag == 0) {
+            print_path(g, adj[i], dest, cur_path);
+        }
+    }
+}
+
+void main() {
+    graph g = [a :-> b c;
+               b :-> c d;
+               c :-> e;
+               d :-> j i;
+               e :-> h f;
+               f :-> b;
+               g :-> j;
+               h :-> i;
+               i :-> g;
+               j :-> f;];
+    node[0] empty;
+    print_path(g, g.a, g.g, empty);   
+}

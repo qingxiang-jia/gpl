@@ -1,0 +1,10 @@
+void main()
+{
+	int three = 2 + 1;
+	print_graph([ a -(2)> b; b -(three)> a; ]);
+}
+
+void print_graph(graph g) {
+	print(g.getWeight(g.a, g.b));
+	print(g.getWeight(g.b, g.a));
+}

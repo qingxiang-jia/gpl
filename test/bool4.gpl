@@ -1,0 +1,8 @@
+void main()
+{
+	bool a;
+	a = true;
+	bool b;
+	b = false;
+	print(a || a || a || a || b || b || a || b || a);
+}

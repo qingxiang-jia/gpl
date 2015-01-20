@@ -1,0 +1,61 @@
+bool[100] visited;
+int[100] stack;
+int n;
+int top;
+graph g;
+
+void dfs(int n) {
+	visited[n] = true;
+	node[] v = g.getOutNeighbours(g.getNode(n));
+	int i;
+	for(i = 0; i<v.len(); i+=1) {
+		int id = v[i].getID();
+		if(!visited[id]) {
+			dfs(id);
+		}
+	}
+	stack[top] = n;
+	top += 1;
+}
+
+void rev_dfs(int n) {
+	visited[n] = true;
+	node this = g.getNode(n);
+	print(this);
+	node[] v = g.getInNeighbours(this);
+	int i;
+	for(i = 0; i<v.len(); i+=1) {
+		int id = v[i].getID();
+		if(!visited[id]) {
+			rev_dfs(id);
+		}
+	}
+}
+
+void main() {
+	g = [
+		a -> b;
+		b :-> c d e;
+		c -> f;
+		d :-> e g;
+		e :-> b f g;
+		f :-> c h;
+		g -> h -> g;
+		g -> j -> k -> l -> j -> i -> g;
+	];
+	n = g.getNodeCount();
+
+	int i;
+	for(i = 0; i<n; i+=1)
+		if(!visited[i])
+			dfs(i);
+
+	for(i = 0; i<n; i+=1) visited[i] = false;
+
+	for(i = n-1; i>=0; i-=1)
+		if(!visited[stack[i]]) {
+			print("=== Strongly connected component ===");
+			rev_dfs(stack[i]);
+			print("=== End ===\n");
+		}
+}

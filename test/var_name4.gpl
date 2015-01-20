@@ -1,0 +1,6 @@
+void main()
+{
+	char c;
+	c = 't';
+	print(c);
+}

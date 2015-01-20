@@ -1,0 +1,11 @@
+void main()
+{
+	int a;
+	a = 5;
+	func1(7);
+}
+
+void func1(int a)
+{
+	print(a);
+}

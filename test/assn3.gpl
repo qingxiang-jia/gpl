@@ -1,0 +1,6 @@
+void main()
+{
+    int t = '5';
+    print(t);
+}
+

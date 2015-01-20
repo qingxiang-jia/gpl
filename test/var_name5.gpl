@@ -1,0 +1,6 @@
+void main()
+{
+	char character_variable;
+	character_variable = 'tt';
+	print(character_variable);
+}

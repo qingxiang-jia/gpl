@@ -1,0 +1,6 @@
+void main()
+{
+	graph g = [ a -(0)> b -(1)> c; ];
+	print(g.getEdge(g.a, g.b).getWeight());
+	print(g.getEdge(g.b, g.c).getWeight());
+}

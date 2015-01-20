@@ -1,0 +1,68 @@
+int[] int_merge_sort(int[] lst)
+{
+	if (lst.len() <= 1)
+		return lst;
+	int size_left = lst.len() / 2;
+	int size_right = lst.len() - size_left;
+	int[size_left] left;
+	int[size_right] right;
+	int i;
+	for (i = 0; i < size_left; i+=1)
+		left[i] = lst[i];
+	for (i = size_left; i < lst.len(); i+=1)
+		right[i-size_left] = lst[i];
+	return int_merge(int_merge_sort(left), int_merge_sort(right));
+}
+
+int[] int_merge(int[] left, int[] right)
+{
+	int i = 0;
+	int j = 0;
+	int k = 0;
+	int[left.len() + right.len()] res;
+	while (i < left.len() && j < right.len())
+		if (left[i] >= right[j])
+		{
+			res[k] = right[j];
+			k += 1;
+			j += 1;
+		} else
+		{
+			res[k] = left[i];
+			k += 1;
+			i += 1;
+		}
+	if (i == left.len())
+		for (; k < res.len(); k+=1)
+		{
+			res[k] = right[j];
+			j += 1;
+		}
+	if (j == right.len())
+		for (; k < res.len(); k+=1)
+		{
+			res[k] = left[i];
+			i += 1;
+		}
+	return res;
+}
+
+void main()
+{
+	int[10] a;
+	a[0] = 2;
+	a[1] = 5;
+	a[2] = 3;
+	a[3] = 2;
+	a[4] = 2;
+	a[5] = 4;
+	a[6] = 9;
+	a[7] = 7;
+	a[8] = 1;
+	a[9] = 2;
+	int[10] res;
+	res = int_merge_sort(a);
+	int i;
+	for (i = 0; i < res.len(); i+=1)
+		print(res[i]);
+}

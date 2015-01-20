@@ -1,0 +1,10 @@
+void main()
+{
+	int a;
+	for(a = 1; a<10; a+=1) {
+		int b = 5;
+		print(b);
+		int b = 6;
+		print(b);
+	}
+}

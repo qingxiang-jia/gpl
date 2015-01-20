@@ -1,0 +1,11 @@
+void main()
+{
+	graph g;
+	g = [
+		a -(0)> b -(1)> c;
+		a -(0)> b;
+		a -(2)> b;
+	];
+	print(g.getWeight(g.a, g.b));
+	print(g.getWeight(g.b, g.c));
+}

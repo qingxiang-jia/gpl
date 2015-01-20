@@ -1,0 +1,11 @@
+void main()
+{
+	int[0] i_arr1;
+	int[20] i_arr2;
+	string[90] s_arr1;
+	string[0] s_arr2;
+	print(s_arr1.len());
+	print(s_arr2.len());
+	print(i_arr1.len());
+	print(i_arr2.len());
+}

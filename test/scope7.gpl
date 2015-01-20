@@ -1,0 +1,21 @@
+void main()
+{
+	int k;
+	k = 2;
+	int i;
+	for (i = 0; i < 1; i+=1)
+	{
+		int k;
+		k = 2;
+		f1(k);
+	}
+}
+
+void f1(int k)
+{
+	int b;
+	int k;
+	k = 9;
+	for (b = 0; b < 1; b+=1)
+		print(k);
+}

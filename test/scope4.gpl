@@ -1,0 +1,15 @@
+void main()
+{
+	int i;
+	i = 1;
+	int j;
+	for (j = 0; j < 1; j+=1)
+		f1();
+}
+
+void f1()
+{
+	int i;
+	i = 77;
+	print(i);
+}

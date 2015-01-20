@@ -1,0 +1,361 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{listings}
+\begin{document}
+\title{\textit{GPL} \\ Language Reference Manual}
+\author{Qingxiang Jia (qj2125)\\ Peiqian Li (pl2521)\\ Ephraim Donghyun Park (edp2114)}
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Introduction}
+Graph is a very powerful data structure that can be used to model a variety of systems in many fields.  Graph is such a fundamental model that people have developed libraries dedicated to graphs in almost all general-purpose high-level programming languages.  However, implementing graph-related algorithms in languages like Java or C++, even with the benefit of using third-party graph libraries, entails manual manipulation of nodes and edges.  This could prove to be error-prone (with pointer manipulations in C++), tedious (verbose especially in Java), and daunting (to people new to the programming world).
+
+The Graph Programming Language (GPL) is a domain-specific language that attempts to remedy these problems.  GPL strives to hide most logic behind graph handling under the hood, so that programmers are able to focus more on using graphs, instead of implementing them.
+
+The primary goal of GPL is to allow programmers to create, use, and manipulate graphs in a natural, flexible and intuitive way. All graph-based algorithms should be easier to implement in GPL, e.g. shortest path, spanning tree, strong connectivity. Because all trees are graphs, GPL is automatically suitable for applications involving tree structures, such as priority queues (min/max heaps), binary search trees, or any kind of hierarchical data representation.
+
+\section{Lexical Conventions}
+\subsection{Comments}
+Two slashes "//" introduce one-line comment, which is terminated by the newline character. For multiline comment, /* is used to start commenting and */ is used to terminate commenting. Nested commenting is not supported by the language.
+
+\subsection{Identifiers}
+An identifier consists of a sequence of letters, digits, and the underscore character; the first character of an identifier cannot be a digit. Upper and lower case letters are considered different.
+
+\subsection{Keywords}
+The following identifiers are reserved by the language to have specific meanings and may not be used otherwise:
+
+\begin{tabular}{ l l l }
+\hline
+boolean & break & char \\
+continue & edge & else \\
+for & graph & if \\
+int & node & return \\
+string & while \\
+\hline
+\end{tabular}
+
+\subsection{Object Type}
+In GPL, graph, edge, node, and string are object types. "Object" implies that they are not primitive data types, and they can have member functions and fields which can be invoked or accessed through the dot operator. Graph, node, edge, and string are the only four object types in GPL; GPL does not support user-defined objects, but does support user-defined functions.
+
+\subsection{Literals}\subsubsection{Integer literals}
+Integer literals are decimal (base 10). An integer literal is just a sequence of digits.
+\subsubsection{Character literals}
+A character literal is one or two characters enclosed by single quotes. Two characters enclosed by single quotes are for escape characters. The first character must be back-slash, and the second one can be back-slash, single quote, 'n', 'r', 't'; they represent backslash, single-quote, line-feed, carriage-return, and tab, respectively. The only valid representation of the single-quote character is a back-slash followed by a single-quote, enclosed in two single quotes.
+
+\subsubsection{Boolean literals}
+There are exactly two boolean literals: \textbf{true} and \textbf{false}.
+
+\subsubsection{String literals}
+A string literal is a sequence of characters enclosed by double quotes. Backslash, double-quote, line-feed, carriage-return, and tab characters need to be escaped by a preceding back-slash, similar to character literals.
+
+\subsubsection{Graph literals}
+A graph literal is a list of weighted directed edges enclosed by square brackets. All weights must be integers. Only directed edges are supported by GPL.
+
+\section{Expressions}
+\subsection{Primary Expressions}
+\subsubsection{identifier}
+An identifier is a unique (in its own scope) name used to identify an entity in the program. It can be the name of a function, parameter, or variable.  A reserved keyword cannot be used as an identifier.
+
+For array identifier, the following member functions can be used:
+\begin{center}
+\begin{tabular}{| l | p{10cm} |}
+\hline
+	len()		& this member function returns the size of the array \\ \hline
+	sort()  & this member function can only be used for int, char, or edge arrays and it sorts the element \\ \hline
+\end{tabular}
+\end{center}
+
+
+\subsubsection{literal}
+Literals include strings, characters, numbers (integer), and graphs.
+
+\subsubsection{string}
+String is an object type of the language. String is immutable.
+
+String has the following two member functions:
+\begin{center}
+\begin{tabular}{| l | p{10cm} |}
+\hline
+	len()		& this member function returns the length of the string \\ \hline
+	substr(a, len)  & this member function returns the substring starting at index \textbf{a}, and includes \textbf{len} characters. \\ \hline
+	empty()	& this member function returns true if the string is empty \\ \hline
+	at(i)		& this member function returns the character at the specified index \\ \hline
+	append(s)  & this member function appends s to the called string \\ \hline
+\end{tabular}
+\end{center}
+
+\subsubsection{node}
+
+	Node is an object type of the language. It represents a node in a graph.
+	
+	Node has member function:
+\begin{center}
+\begin{tabular}{| l | p{10cm} |}
+\hline
+getID()	&	returns the unique integer ID of the specified node \\ \hline
+\end{tabular}
+\end{center}
+
+\subsubsection{edge}
+
+	Edge is an object type of the language. It connects two nodes.
+	
+	Edge has member functions:
+\begin{center}
+\begin{tabular}{| l | p{10cm} |}
+\hline
+		getWeight()	&	returns the weight of the edge. \\ \hline
+		getSrc()  	&      returns the source node of this edge. \\ \hline
+		getDst()	&	returns the destination node of this edge. \\ \hline
+		
+\end{tabular}
+\end{center}
+		
+\subsubsection{graph}
+Graph is an object type of the language. It represents a directed graph which consists of nodes and directed edges with integer weights. 
+
+The nodes in a graph can be accessed like fields. For example, if graph g has node v, then the node is represented by the expression "g.v".
+
+Graph has member functions:
+\begin{center}
+\begin{tabular}{| l | p{10cm} |}
+\hline
+	getNode(int id)	&	returns the node with specified id \\ \hline
+	getEdge(node src, node dst)	&	returns the specified edge. If the specified edge does not exist, a run-time exception is raised.\\ \hline
+	getAllEdges()	&	returns the list of edges in the graph as an array\\ \hline
+	getAllNodes()	&	returns the list of nodes in the graph as an array\\ \hline
+	getWeight(node src, node dst) 	&	returns the weight of the edge that goes from src to dst node \\ \hline
+	getEdgeCount() 	&  returns the number of edges in the graph \\ \hline
+	getNodeCount()	&  returns the number of nodes in the graph \\  \hline
+	getInNeighbours(node n)	&	returns an array of nodes that have edge to the specified node \\ \hline
+	getOutNeighbours(node n) &	returns an array of nodes that this node has edges to \\ \hline
+
+	
+\end{tabular}
+\end{center}
+
+\subsubsection{( expression )}
+The parenthesized expression is the same as expression. Including an expression in a pair of parentheses does not imply any precedence of the expression.
+
+\subsubsection{primary-expression {[} expression {]} }
+The primary-expression in this part can only be array. The expression can only be integers within the range of the array. primary-expression [ expression ] means to access the expression-th element in the array.
+
+\subsubsection{primary-expression ( expression ) }
+This expression means a functional call, where primary-expression is an identifier that is a name of a function. The expression in the pair of brackets is parameter(s) to in the call. It can be single parameter. If there are more than one parameters, they should be separated by a comma.
+
+\subsubsection{primary-lvalue . member-function-of-object-type}
+An lvalue expression followed by a dot followed by the name of a member function of object-type is a primary expression.
+
+\subsection{Graph Definition Operators}
+%\subsubsection{expression $--$ expression}
+%The $--$ binary operator connects two nodes with unweighted undirected edge.
+
+\subsubsection{identifier $->$ identifier}
+The $->$ binary operator connects two nodes with zero-weighted directed edge. The direction goes from first node identifier to second node identifier.
+
+%\subsubsection{expression $--$: expression, expression, ...}
+%The $--$: operator connects first node expression with all the other node expressions that follow with unweighted undirected %edge.
+
+\subsubsection{identifier :$->$ identifier, identifier, ...}
+The :$->$ operator connects first node identifier with all the other node identifier that follow with zero-weighted directed edge.
+
+%\subsubsection{expression $-$(expression)$-$ expression}
+%The $-$(expression)$-$ operator connects two nodes with weighted undirected edge. The weight of the edge equals the %expression in the middle.
+
+\subsubsection{identifier $-$(expression)$>$ identifier}
+The $-$(identifier)$>$ operator connects two nodes with weighted directed edge. The direction goes from first node identifier to second node identifier. The weight of the edge equals the expression in the middle. The expression must be of int type.
+
+%\subsubsection{expression $-$(expression)$-:$ expression, expression, ... }
+%The $-$(expression)$-:$ operator connects first node expression with all the other node expressions what follow with %weighted undirected edge. The weight of the edge equals the expression in the middle.
+
+\subsubsection{identifier $:-$(expression)$>$ identifier, identifier, ... }
+The $:-$(expression)$>$ operator connects first node identifier with all the other node identifier what follow with weighted directed edge. The weight of the edge equals the expression in parentheses. The expression must be of int type.
+
+\subsection{Unary Operators}
+Unary operators are grouped from right to left.
+\subsubsection{$-$ expression}
+The $-$ unary operator can be applied to an expression of type int or char, and results in the negative of the expression.
+
+\subsubsection{$!$ expression}
+The $!$ unary operator can only be applied to an expression of boolean type, and results in the opposite of the truth value of the expression
+
+\subsection{Multiplicative Operators}
+\subsubsection{expression * expression}
+The binary operator * indicates multiplication between expression and expression. The expression pair can be in the following combinations. 1) int int 2) char char 3) int char 4) char int. In case 3, and 4, all the parameters will be treated as int.
+\subsubsection{expression / expression}
+The binary operator / indicates division between expression and expression. The expression pair can be in the following combinations. 1) int int 2) char char 3) int char 4) char int. In case 3, and 4, all the parameters will be treated as int.
+\subsubsection{expression \% expression}
+The binary \% operator outputs the remainder from the division of the first expression by the second. The expression pair can be in the following combinations. 1) int int 2) char char 3) int char 4) char int. In case 3, and 4, all the parameters will be treated as int.
+\subsection{Additive operators}
+\subsubsection{expression + expression}
+The binary + operator outputs the addition of the first expression and the second expression. The expression pair can be in the following combinations. 1) int int 2) char char 3) int char 4) char int. In case 3, and 4, all the parameters will be treated as int.
+\subsubsection{expression - expression}
+The binary - operator outputs the result of the first expression minus that of the second expression. The expression pair can be in the following combinations. 1) int int 2) char char 3) int char 4) char int. In case 3, and 4, all the parameters will be treated as int.
+\subsection{Relational operators}
+\subsubsection{expression $<$ expression}
+\subsubsection{expression $>$ expression}
+\subsubsection{expression $<=$ expression}
+\subsubsection{expression $>=$ expression}
+\subsubsection{expression $==$ expression}
+\subsubsection{expression $!=$ expression}
+The relational operators $<$ (less than), $>$ (greater than), $<=$ (less than or equal to), $>=$ (greater than or equal to), $==$ (equal to), $!=$ (not equal to) all yield boolean \textbf{true} or \textbf{false}. The two expressions being compared must be of the same type, and they can be int, float, char or string. Characters are compared by ASCII values; strings are compared lexicographically.
+\subsection{Assignment operators}
+\subsubsection{variable = expression}
+The binary = operator indicates that the result of the expression on the right side is stored in the variable on the left. If there is already data stored in the variable, the data will be replaced. The variable can be any legal type defined in the language.
+\subsubsection{variable += expression}
+The binary += operator indicates that the value of the variable on the right side will be incremented by the quantity of the result of the expression on the left side. This operator requires the two expressions to be in the same numerical type, i.e. either both in int, or both in char.
+\subsubsection{variable -= expression}
+The binary -= operator indicates that the value of the variable on the right side will be decremented by the quantity of the result of the expression on the left side. This operator requires the two expressions to be in the same numerical type, i.e. either both in int, or both in int.
+\subsection{Logical operators}
+\subsubsection{boolean-expression $\&\&$ boolean-expression}
+\subsubsection{boolean-expression $||$ boolean-expression}
+The logical operators $\&\&$ (and) and $||$ (or) can be applied to two boolean expressions, and results in the logical AND or OR of the truth values of the two boolean expressions.
+
+\subsection{Function calls}
+Function calls are made by function identifier followed by the list of arguments separated by commas enclosed by parentheses. Function overloading, functions with the same name but different set of argument types, is supported.
+
+\section{Declarations}
+\subsection{Type specifiers}
+The type-specifiers are
+
+\begin{lstlisting}
+type-specifier:
+		int
+		char
+		string
+		graph
+		node
+		edge
+		type-specifier [ ]
+\end{lstlisting}
+	
+\subsection{Variable Declarators}
+\begin{lstlisting}
+declarator:
+	type-specifier identifier
+	type-specifier identifier = expr
+\end{lstlisting}
+	
+\subsection{Graph Expression}
+\begin{lstlisting}
+graph-expr
+	[ graph-body ]
+		
+graph-body
+	edge-declaration-list
+
+edge-declaration-list:
+     	edge-declaration;
+    	edge-declaration; edge-declaration-list 
+ 
+edge-stmt:
+     	node-declarator 
+   	node-declarator -> edge-stmt 
+    	node-declarator - ( expr ) > edge-stmt 
+ 
+edge-declaration:
+     	edge-stmt 
+   	node-declarator : - ( expr ) > node-declarator-list  
+   	node-declarator : -> node-declarator-list  
+ 
+node-declarator-list:
+     	node-declarator 
+     	node-declarator node-declarator-list    
+ 
+node-declarator:
+     	identifier
+
+\end{lstlisting}
+
+\subsection{Function declarations}
+\begin{lstlisting}
+
+function-decl:
+ 	retval formals_opt ) { stmt_list }
+
+  
+procdecl: /*procedure (aka. void function) declarator*/
+   	void identifier ( formals_opt ) { stmt_list }
+  
+retval:
+      	vartype identifier (
+ 
+formals_opt:
+	/* nothing */ 
+    	formal_list 
+  
+formal_list:
+      	vardecl
+    	formal_list , vardecl 
+ 
+\end{lstlisting}		
+
+\section{Statements}
+\subsection{Expression statement}
+Expression statement is an expression followed by semicolon.
+\subsection{Compound statement}
+The compound statement is a list of statements surrounded by parentheses.
+\subsection{Conditional statement}
+There are two types of conditional statements:
+
+\begin{itemize}
+\item Type 1: if (expression) statement
+\item Type 2: if (expression) statement else statement
+\end{itemize}
+In type 1, if expression is evaluated to be true, the statement will be executed. In type 2, if expression is evaluated to be true, the first statement will be executed, otherwise the second statement will be executed.
+\subsection{While statement}
+The while statement can be described as: while (expression) statement
+
+As long as the expression is evaluated to be true, the statement will be executed repeatedly. The expression is evaluated before the execution of statement.
+
+\subsection{For statement}
+The for statement can be expressed as: 
+
+for (expression-1; expression-2; expression-3) statement
+
+expression-1 defines the initialization of the loop. expression-2 is the test that will be evaluated for truth in each loop. expression-3 defines what to do after each loop has been executed.
+
+\subsection{Return statement}
+Return statement can be described as: return (expression)
+
+The expression can be either a simple expression, which will be evaluated to a value and then be returned to the calling function. Alternatively, the expression can be consisted of one or more function calls, then the return statement will be executed after all function calls have been returned.
+
+\subsection{Null statement}
+A null statement consists a single semicolon. It is useful in a for loop where one or more of the three expressions is not defined (or unneeded to define).
+
+\section{Scoping}
+There are three rules of scoping. The first rule states that the global variables and functions can be referred from anywhere in the code even before it is declared. The second rule states that the variables declared in a function can be referred only after the declaration. The third rule states that the variables declared in a function bind closer than the variables declared outside the function. For example, there is a variable named a in a function, even though, outside the function, there may be a variable a, because of the stronger binding of the variable declared in the function, if one refers a in the function, he or she refers to the one declared in the function.
+%\section{Example}
+
+%Here is an example program that finds the minimum spanning tree of an undirected graph.
+%
+%func min_spanning_tree(g) {
+%    buf = [] //empty array
+%    for (e in g.edges()) {
+%        buf.append( (e.value, e) ); //append the tuple (e.value, e) to buf
+%    }
+%    sort(buf); //built-in library function
+%    total_weight = 0;
+%    mst = {}; //initialize minimum spanning tree as an empty graph
+%    for (t in buf) {
+%        e = t[1]; //the second element of the tuple is the edge
+%        if ( e.first in mst.nodes() && e.second in mst.nodes()) {
+%            //adding this edge would result in a cycle in mst, so we skip
+%            continue;
+%        }
+%        //otherwise, we add this edge to mst
+%        mst.add(e);
+%        total_weight += t[0]; //accumulate weight
+%    }
+%    return total_weight;
+%}
+%
+%func main() {
+%    g = {
+%        a -2- b -3- c -4- d -2- a;
+%        b -5- d;
+%        c -1- f;
+%    }; //initialize graph; the number between -- is the weight of that particular edge
+%    print(min_spanning_tree(g)); //print the total weight of the MST
+%}
+\end{document}

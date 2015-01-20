@@ -1,0 +1,24 @@
+void main()
+{
+	int[1] a;
+	string[2] b;
+	char[3] c;
+	print(ret_int_arr(a).len());
+	print(ret_string_arr(b).len());
+	print(ret_char_arr(c).len());
+}
+
+int[] ret_int_arr(int[] arr)
+{
+	return arr;
+}
+
+string[] ret_string_arr(string[] arr)
+{
+	return arr;
+}
+
+char[] ret_char_arr(char[] arr)
+{
+	return arr;
+}

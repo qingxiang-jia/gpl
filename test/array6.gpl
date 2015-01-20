@@ -1,0 +1,18 @@
+void main()
+{
+	string[2][2] str;
+	char[2][2] ch;
+	int[2][2] num;
+	str[0][1] = "here";
+	ch[1][0] = 'h';
+	num[1][1] = 7;
+	print(str[0][1]);
+	print(ch[1][0]);
+	print(num[1][1]);
+	str[0][1] = "there";
+	ch[1][0] = 'm';
+	num[1][1] = 8;
+	print(str[0][1]);
+	print(ch[1][0]);
+	print(num[1][1]);
+}

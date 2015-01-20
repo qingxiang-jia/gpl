@@ -1,0 +1,35 @@
+int time = 1130;
+
+void main()
+{
+	string[3] student;
+	string prof = "edwards";
+	int[3][2][1] prof_brain;
+	student[0] = "ephraim";
+	student[1] = "peiqian";
+	student[2] = "qingxiang";
+	while (time < 1201)
+	{
+		do_slides(student[0], student[1], student[2], prof_brain);
+		time += 300;
+	}
+	print("presentation done");
+	graph result_graph = [
+		prof -(2*time/4)> really -> likes -(5)> it;
+		prof -(2)> really -(20)> hates -(-3)> it;
+	];
+	edge[] edges = result_graph.getAllEdges();
+	for (time = 0; time < 5; time+=1)
+		print(edges[time].getDst().);
+}
+
+void do_slides(string s1, string s2, string s3, int[][][] audience)
+{
+	int i;
+	int j;
+	int k;
+	for (i = 0; i < audience.len(); i+=1)
+		for(j = 0; j < audience[0].len(); j+=1)
+			for(k = 0; k < audience[0][0].len(); k+=1)
+				audience[i][j][k] = 42;
+}

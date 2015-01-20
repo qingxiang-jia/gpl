@@ -1,0 +1,13 @@
+void main()
+{
+	int[2] arr_i;
+	string[3] arr_s;
+	arr_i[1] = 9;
+	print(arr_i[1]);
+	arr_i[1] = 7;
+	print(arr_i[1]);
+	arr_s[0] = "success";
+	print(arr_s[0]);
+	arr_s[0] = "dog";
+	print(arr_s[0]);
+}

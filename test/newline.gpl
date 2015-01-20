@@ -1,0 +1,8 @@
+void main() {
+    int t = 56;
+    char c = '\n';
+    print(t);
+    print(c);
+    print(t+1);
+}
+

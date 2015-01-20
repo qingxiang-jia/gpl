@@ -1,0 +1,11 @@
+Program_START
+
+
+Function( type: (ptype: int; dimension_length: 0) name: "main" formals: ) {
+LocalVar( Var( name: a; ptype: int; dimension_length: 0 ))
+Expr( Assign( Id( a ) = NumLit( 5 ) ) )
+Expr( Assign( Id( b ) = NumLit( 8 ) ) )
+Expr( Call( print, Binop( Id( a ) + Id( b ) ) ) )
+Expr( Call( print, Id( c ) ) )
+}
+Program_END

@@ -1,0 +1,10 @@
+void main()
+{
+	int a = 3;
+	char c = 'k';
+	string s = "d";
+	print(a);
+	print(c);
+	print(s);
+}
+

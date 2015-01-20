@@ -1,0 +1,11 @@
+void main()
+{
+	string[4] arr;
+	arr[0] = "this";
+	arr[1] = "is";
+	arr[2] = "a";
+	arr[3] = "test";
+	int i;
+	for (i = 0; i < 4; i+=1)
+		print(arr[i]);
+}

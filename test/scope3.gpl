@@ -1,0 +1,12 @@
+void main()
+{
+	int i;
+	int n = 5;
+	n = 6;
+	
+	for (i = 0; i < 1; i+=1)
+	{
+		int n = 7;
+		print(n);
+	}
+}

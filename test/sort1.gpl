@@ -1,0 +1,9 @@
+void main() {
+    graph g = [ a -(0)> b -(4)> c -(3)> d; d -(1)> e -(2)> f;];
+    edge[5] edges = g.getAllEdges();
+    edges.sort();
+    int i;
+    for(i = 0; i<edges.len(); i+=1) {
+    	print(edges[i].getWeight());
+    }
+}
